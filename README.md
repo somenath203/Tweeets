@@ -1,4 +1,4 @@
-# Tweeet 
+# Tweeets
 
 ## Demo video of the application
 
@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=9J0202Y7sLk
 
 ## Introduction
 
-**Tweeet** is a simple web application that allows users to create, edit, and delete tweets. Each tweet consists of a description, and optionally, an image. Users can also view tweets created by other users. 
+**Tweeets** is a simple web application that allows users to create, edit, and delete tweets. Each tweet consists of a description, and optionally, an image. Users can also view tweets created by other users. 
 To interact with the application (create, edit, or delete tweets), users must first authenticate themselves first.
 
 ## Features of the Application
