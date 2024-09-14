@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block title_of_page %} Tweeets {% endblock %}
+
+
+{% block content_of_page %}
+
+    <div class='min-h-screen flex flex-col items-center'>
+
+        <h1 class='text-center text-white text-xl my-10 tracking-widest'>
+            Are you sure you want to delete the tweet ?
+        </h1>
+
+        <div class="flex items-center justify-center gap-10">
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <button class='px-10 py-3 rounded-xl bg-red-500 tracking-widest text-white text-lg'>
+                    DELETE
+                </button>
+                
+            </form>
+
+            <a href="{% url 'all_tweets' %}" class='px-10 py-3 rounded-xl bg-violet-500 tracking-widest text-white text-lg'>CANCEL</a>
+
+        </div>
+
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title_of_page %} Tweeets {% endblock %}
+
+{% block content_of_page %}
+
+
+<div class='min-h-screen flex flex-col items-center'>
+
+
+    <h1 class='text-center text-white text-xl my-6 tracking-widest uppercase'>
+
+        {% if create_tweet_form.instance.pk %}
+            Edit Tweet
+        {% else %}
+            Create Tweet
+        {% endif %}
+    
+    </h1>
+
+
+    <form method='POST' enctype='multipart/form-data' class="space-y-6 w-full max-w-lg">
+
+        {% csrf_token %}
+
+        <div class="flex flex-col space-y-2">
+
+            <label for="id_text" class="block text-sm font-medium text-white">Tweet Text</label>
+
+            <textarea id="id_text" rows="6" name="text" class="resize-none overflow-hidden border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-transparent text-white">
+                {% if create_tweet_form.text.value %}
+                    {{ create_tweet_form.text.value }}
+                {% endif %}
+            </textarea>
+
+            {% if create_tweet_form.text.errors %}
+                <p class="text-red-500 text-xs italic">{{ create_tweet_form.text.errors }}</p>
+            {% endif %}
+
+        </div>
+
+        <div class="flex flex-col space-y-2">
+
+            <label for="id_photo" class="block text-sm font-medium text-white">Upload Photo (optional)</label>
+            
+            <input type="file" id="id_photo" name="photo" class="p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full">
+            
+            {% if create_tweet_form.photo.errors %}
+                <p class="text-red-500 text-xs italic">{{ create_tweet_form.photo.errors }}</p>
+            {% endif %}
+
+        </div>
+
+        <button class='bg-violet-500 text-white px-8 py-3 rounded-lg hover:bg-violet-600' type='submit'>
+            Submit
+        </button>
+
+    </form>
+
+    <a href="{% url 'all_tweets' %}" class="mt-6 text-violet-400 hover:underline">Back to all tweet page</a>
+
+</div>
+
+{% endblock %}

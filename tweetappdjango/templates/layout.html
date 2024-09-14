@@ -1,0 +1,72 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title_of_page %}
+            Default Value
+            {% endblock %}
+        </title>
+        {% tailwind_css %}
+    </head>
+
+    <body class='bg-gray-800 text-white'>
+
+        <header class="text-gray-400 bg-gray-800 body-font">
+
+            <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+
+              <a href="http://127.0.0.1:8000/tweet/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+                <span class="ml-3 text-xl tracking-wider">Tweeets 📝</span>
+              </a>
+
+              <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+
+                {% comment %} since, 'user' which is the currently logged in user is a part of the 
+                              request, it can be accessed globally across anywhere in the application {% endcomment %}
+                
+                {% if user.is_authenticated %}
+
+                  <a href='http://127.0.0.1:8000/tweet/' class="mr-5 hover:text-white hover:cursor-pointer">Home</a>
+                  
+                  <a href='http://127.0.0.1:8000/tweet/tweet_create/' class="mr-5 hover:text-white hover:cursor-pointer">Create</a>
+
+                  {% comment %} in django, logout is not a button, but rather a form {% endcomment %}
+                  <form method="POST" action="{% url 'logout' %}">
+                    {% comment %} Django's built-in login and logout view uses the name 'login' and 'logout' 
+                    respectively. By including django.contrib.auth.urls in the root app `tweetappdjango`, 
+                    you ensure that the logout URL is available. {% endcomment %}
+
+                    {% csrf_token %}
+
+                    <button type='submit'>Logout</button>
+
+                </form>
+                
+                
+                {% else %}
+
+                  <a href="{% url 'login' %}" class="mr-5 hover:text-white hover:cursor-pointer">Login</a>
+                  
+                  <a href='http://127.0.0.1:8000/tweet/register/' class="mr-5 hover:text-white hover:cursor-pointer">Register</a>
+
+                {% endif %}
+              
+              </nav>
+
+            </div>
+
+          </header>
+
+        {% block content_of_page %}
+        {% endblock %}
+
+    </body>
+
+</html>

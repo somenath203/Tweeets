@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block title_of_page %} Tweeet | Login {% endblock %}
+
+{% block content_of_page %}
+
+    <div class='min-h-screen flex flex-col items-center px-4 py-6'>
+
+        <div class='w-full max-w-md bg-slate-800 p-8 rounded-lg shadow-lg'>
+
+            <h1 class='text-center text-white text-2xl font-semibold mb-6 mt-12'>
+                Login
+            </h1>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <div class="space-y-4">
+
+                    <div class="flex flex-col space-y-2">
+
+                        <label for="id_username" class="block text-sm font-medium text-white">Username</label>
+                        
+                        <input type="text" id="id_username" name="username" class="p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-transparent text-white" placeholder="Enter your username">
+                        {% if form.username.errors %}
+                            <p class="text-red-500 text-xs italic">{{ form.username.errors }}</p>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="flex flex-col space-y-2">
+                        
+                        <label for="id_password" class="block text-sm font-medium text-white">Password</label>
+                        
+                        <input type="password" id="id_password" name="password" class="p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 bg-transparent text-white" placeholder="Enter your password">
+                        
+                        {% if form.password.errors %}
+                            <p class="text-red-500 text-xs italic">{{ form.password.errors }}</p>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+                <button class='w-full bg-violet-500 text-white px-4 py-2 rounded-lg hover:bg-violet-600 mt-6' type='submit'>
+                    Submit
+                </button>
+                
+            </form>
+
+            <a class="block text-center mt-5" href="{% url 'register' %}">Don't have an account? Register</a>
+
+        </div>
+
+    </div>
+
+{% endblock %}

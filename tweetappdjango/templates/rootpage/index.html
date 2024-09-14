@@ -1,0 +1,33 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Tweeets
+        </title>
+        {% tailwind_css %}
+    </head>
+
+    <body class='bg-gray-800 text-white'>
+
+        <div class='min-h-screen flex flex-col gap-7 items-center justify-center'>
+
+            <p class='text-5xl font-bold tracking-widest'>Tweeets📝</p>
+
+            <p class='text-2xl font-semibold tracking-widest'>Your Voice, Your Moments, Shared Effortlessly.</p>
+
+            <a href="http://127.0.0.1:8000/tweet" class="px-9 py-4 bg-violet-800 text-white text-lg tracking-widest rounded-xl">
+                GET STARTED
+            </a>
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title_of_page %} Login {% endblock %}
+
+{% block content_of_page %}
+
+    <div class='min-h-screen flex flex-col gap-5 items-center px-4 py-6'>
+
+        <h2 class="mt-10 text-xl text-center">You have been logged out successfully</h2>
+
+        <a class="block text-center mt-5" href="{% url 'login' %}">Login Again</a>
+
+    </div>
+
+{% endblock %}
