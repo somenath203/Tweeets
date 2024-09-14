@@ -30,3 +30,5 @@ To interact with the application (create, edit, or delete tweets), users must fi
 - **SQLite3 (db.sqlite3)**: A lightweight database used to store tweets and user information.
   
 - **Django.contrib.auth**: Django's built-in authentication system for managing user logins, registrations, and session management.
+
+- **Django Tailwind**: Integrated Tailwind CSS for styling the application, enabling modern and responsive design with utility-first classes..
