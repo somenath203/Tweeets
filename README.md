@@ -25,7 +25,7 @@ To interact with the application (create, edit, or delete tweets), users must fi
 
 - **Django**: Used as the main web framework for building the application.
   
-- **Jinja Templating Engine**: Provides the structure for the front-end, rendering dynamic content on the pages.
+- **Django Templating Engine**: Used to dynamically render HTML templates with data from the backend.
   
 - **SQLite3 (db.sqlite3)**: A lightweight database used to store tweets and user information.
   
